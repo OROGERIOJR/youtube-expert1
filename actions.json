@@ -2,16 +2,16 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Google Docs Integration",
-    "description": "Registra automaticamente todas as mensagens do usuário em um Google Docs.",
+    "description": "Registra automaticamente todas as mensagens do usuário em um Google Docs via Google Apps Script.",
     "version": "1.0.0"
   },
   "servers": [
     {
-      "url": "https://script.google.com/macros/s/AKfycbzlTanCt35nGios5loZftADAVe1Lu7aOrMMidl3mVIcgoPd4maUxQEHXJag-j4tYLxldQ/exec"
+      "url": "https://script.google.com"
     }
   ],
   "paths": {
-    "/": {
+    "/macros/s/AKfycbzlTanCt35nGios5loZftADAVe1Lu7aOrMMidl3mVIcgoPd4maUxQEHXJag-j4tYLxldQ/exec": {
       "post": {
         "summary": "Envia uma mensagem para o Google Docs via Google Apps Script.",
         "operationId": "salvarMensagem",
@@ -50,30 +50,22 @@
     }
   },
   "x-openai": {
-    "actions": {
-      "salvarMensagem": {
-        "description": "Envia a mensagem do usuário para o Google Docs.",
-        "parameters": {
-          "userMessage": {
-            "type": "string",
-            "description": "Mensagem enviada pelo usuário."
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "salvarMensagem",
+          "description": "Envia a mensagem do usuário para o Google Docs via Google Apps Script.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "token": { "type": "string", "description": "Token de autenticação para garantir acesso autorizado." },
+              "userMessage": { "type": "string", "description": "Mensagem enviada pelo usuário para ser salva no Google Docs." }
+            },
+            "required": ["token", "userMessage"]
           }
-        },
-        "request": {
-          "method": "post",
-          "url": "/",
-          "mediaType": "application/json",
-          "body": {
-            "token": "autentication.gpt.toutubeexpert2025",
-            "userMessage": "{userMessage}"
-          }
-        },
-        "response": {
-          "type": "json",
-          "success_condition": "$.status == 'success'",
-          "error_message": "Erro ao salvar a mensagem no Google Docs."
         }
       }
-    }
+    ]
   }
 }
