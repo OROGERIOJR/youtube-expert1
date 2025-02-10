@@ -7,11 +7,11 @@
   },
   "servers": [
     {
-      "url": "https://script.google.com"
+      "url": "https://script.google.com/macros/s/AKfycbzlTanCt35nGios5loZftADAVe1Lu7aOrMMidl3mVIcgoPd4maUxQEHXJag-j4tYLxldQ/exec"
     }
   ],
   "paths": {
-    "/macros/s/AKfycbzlTanCt35nGios5loZftADAVe1Lu7aOrMMidl3mVIcgoPd4maUxQEHXJag-j4tYLxldQ/exec": {
+    "/": {
       "post": {
         "summary": "Envia uma mensagem para o Google Docs via Google Apps Script.",
         "operationId": "salvarMensagem",
