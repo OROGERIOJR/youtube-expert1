@@ -11,9 +11,9 @@
     }
   ],
   "paths": {
-    "/salvarMensagem": {
+    "/": {
       "post": {
-        "summary": "Envia a mensagem do usuário para o Google Docs via Google Apps Script.",
+        "summary": "Envia uma mensagem para o Google Docs via Google Apps Script.",
         "operationId": "salvarMensagem",
         "requestBody": {
           "required": true,
@@ -22,8 +22,10 @@
               "schema": {
                 "type": "object",
                 "properties": {
+                  "token": { "type": "string" },
                   "userMessage": { "type": "string" }
-                }
+                },
+                "required": ["token", "userMessage"]
               }
             }
           }
@@ -59,15 +61,16 @@
         },
         "request": {
           "method": "post",
-          "url": "/salvarMensagem",
+          "url": "/",
           "mediaType": "application/json",
           "body": {
+            "token": "autentication.gpt.toutubeexpert2025",
             "userMessage": "{userMessage}"
           }
         },
         "response": {
           "type": "json",
-          "success_condition": "true",
+          "success_condition": "$.status == 'success'",
           "error_message": "Erro ao salvar a mensagem no Google Docs."
         }
       }
