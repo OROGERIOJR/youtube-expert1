@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://script.google.com/macros/s/AKfycbzL6HeYL5AtP2p8H1cvnFXAh2WIMJYXHwhq1HWJPxbq9siAMSuKjRhes3bGPixNZS0WUQ/exec"
+      "url": "https://script.google.com/macros/s/AKfycbzVZ-cqivQQhzt2G1O6_nbxK1swjVTIQOblM6oHAx3o81w01JtXyk_OeIyAfsMGZFPA0w/exec"
     }
   ],
   "paths": {
@@ -68,7 +68,7 @@
         },
         "request": {
           "method": "post",
-          "url": "https://script.google.com/macros/s/AKfycbzL6HeYL5AtP2p8H1cvnFXAh2WIMJYXHwhq1HWJPxbq9siAMSuKjRhes3bGPixNZS0WUQ/exec",
+          "url": "https://script.google.com/macros/s/AKfycbzVZ-cqivQQhzt2G1O6_nbxK1swjVTIQOblM6oHAx3o81w01JtXyk_OeIyAfsMGZFPA0w/exec",
           "mediaType": "application/json",
           "body": {
             "userMessage": "{userMessage}"
