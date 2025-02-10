@@ -19,4 +19,64 @@
           "required": true,
           "content": {
             "application/json": {
-              "sche
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "userMessage": { "type": "string" }
+                },
+                "required": ["userMessage"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Mensagem salva com sucesso no Google Docs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string" },
+                    "message": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "x-openai": {
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "salvarMensagem",
+          "description": "Envia a mensagem do usuário para o Google Docs.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "userMessage": { "type": "string", "description": "Mensagem enviada pelo usuário para ser salva no Google Docs." }
+            },
+            "required": ["userMessage"]
+          }
+        },
+        "request": {
+          "method": "post",
+          "url": "/",
+          "mediaType": "application/json",
+          "body": {
+            "userMessage": "{userMessage}"
+          }
+        },
+        "response": {
+          "type": "json",
+          "success_condition": "$.status == 'success'",
+          "error_message": "Erro ao salvar a mensagem no Google Docs."
+        }
+      }
+    ]
+  }
+}
