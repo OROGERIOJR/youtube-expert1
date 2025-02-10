@@ -1,0 +1,76 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Google Docs Integration",
+    "description": "Registra automaticamente todas as mensagens do usuário em um Google Docs.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://script.google.com/macros/s/AKfycbzlTanCt35nGios5loZftADAVe1Lu7aOrMMidl3mVIcgoPd4maUxQEHXJag-j4tYLxldQ/exec"
+    }
+  ],
+  "paths": {
+    "/salvarMensagem": {
+      "post": {
+        "summary": "Envia a mensagem do usuário para o Google Docs via Google Apps Script.",
+        "operationId": "salvarMensagem",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "userMessage": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Mensagem salva com sucesso no Google Docs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string" },
+                    "message": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "x-openai": {
+    "actions": {
+      "salvarMensagem": {
+        "description": "Envia a mensagem do usuário para o Google Docs.",
+        "parameters": {
+          "userMessage": {
+            "type": "string",
+            "description": "Mensagem enviada pelo usuário."
+          }
+        },
+        "request": {
+          "method": "post",
+          "url": "/salvarMensagem",
+          "mediaType": "application/json",
+          "body": {
+            "userMessage": "{userMessage}"
+          }
+        },
+        "response": {
+          "type": "json",
+          "success_condition": "true",
+          "error_message": "Erro ao salvar a mensagem no Google Docs."
+        }
+      }
+    }
+  }
+}
