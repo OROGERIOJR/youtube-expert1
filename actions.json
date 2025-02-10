@@ -1,85 +1,22 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Google Docs Integration",
-    "description": "Registra automaticamente todas as mensagens do usuário em um Google Docs via Google Apps Script.",
+    "title": "Salvar Mensagens GPT",
+    "description": "Armazena automaticamente todas as mensagens enviadas pelo usuário em um Google Docs.",
     "version": "1.0.0"
   },
   "servers": [
     {
-      "url": "https://script.google.com/macros/s/AKfycbzlTanCt35nGios5loZftADAVe1Lu7aOrMMidl3mVIcgoPd4maUxQEHXJag-j4tYLxldQ/exec"
+      "url": "https://script.google.com/macros/s/AKfycbzy_DWp0J_A0QypzJhEV8PhLi6bUO1SY41ncbVxyEeLW-3Ps7jG_arTM2MjqO_BktoQWA/exec"
     }
   ],
   "paths": {
     "/": {
       "post": {
-        "summary": "Envia uma mensagem para o Google Docs via Google Apps Script.",
+        "summary": "Salva mensagem do usuário no Google Docs.",
         "operationId": "salvarMensagem",
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "token": { "type": "string" },
-                  "userMessage": { "type": "string" }
-                },
-                "required": ["token", "userMessage"]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Mensagem salva com sucesso no Google Docs",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "status": { "type": "string" },
-                    "message": { "type": "string" }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "x-openai": {
-    "tools": [
-      {
-        "type": "function",
-        "function": {
-          "name": "salvarMensagem",
-          "description": "Envia a mensagem do usuário para o Google Docs via Google Apps Script.",
-          "parameters": {
-            "type": "object",
-            "properties": {
-              "token": { "type": "string", "description": "Token de autenticação para garantir acesso autorizado." },
-              "userMessage": { "type": "string", "description": "Mensagem enviada pelo usuário para ser salva no Google Docs." }
-            },
-            "required": ["token", "userMessage"]
-          }
-        },
-        "request": {
-          "method": "post",
-          "url": "https://script.google.com/macros/s/AKfycbzlTanCt35nGios5loZftADAVe1Lu7aOrMMidl3mVIcgoPd4maUxQEHXJag-j4tYLxldQ/exec",
-          "mediaType": "application/json",
-          "body": {
-            "token": "autentication.gpt.toutubeexpert2025",
-            "userMessage": "{userMessage}"
-          }
-        },
-        "response": {
-          "type": "json",
-          "success_condition": "$.status == 'success'",
-          "error_message": "Erro ao salvar a mensagem no Google Docs."
-        }
-      }
-    ]
-  }
-}
+              "sche
