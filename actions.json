@@ -49,19 +49,16 @@
     }
   },
   "x-openai": {
-    "tools": [
+    "functions": [
       {
-        "type": "function",
-        "function": {
-          "name": "salvarMensagem",
-          "description": "Envia a mensagem do usuário para o Google Docs.",
-          "parameters": {
-            "type": "object",
-            "properties": {
-              "userMessage": { "type": "string", "description": "Mensagem enviada pelo usuário para ser salva no Google Docs." }
-            },
-            "required": ["userMessage"]
-          }
+        "name": "salvarMensagem",
+        "description": "Envia a mensagem do usuário para o Google Docs.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "userMessage": { "type": "string", "description": "Mensagem enviada pelo usuário para ser salva no Google Docs." }
+          },
+          "required": ["userMessage"]
         },
         "request": {
           "method": "post",
