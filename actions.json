@@ -64,6 +64,20 @@
             },
             "required": ["token", "userMessage"]
           }
+        },
+        "request": {
+          "method": "post",
+          "url": "/",
+          "mediaType": "application/json",
+          "body": {
+            "token": "autentication.gpt.toutubeexpert2025",
+            "userMessage": "{userMessage}"
+          }
+        },
+        "response": {
+          "type": "json",
+          "success_condition": "$.status == 'success'",
+          "error_message": "Erro ao salvar a mensagem no Google Docs."
         }
       }
     ]
