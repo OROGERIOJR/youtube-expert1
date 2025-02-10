@@ -3,7 +3,7 @@
   "info": {
     "title": "Salvar Mensagens GPT",
     "description": "Armazena automaticamente todas as mensagens enviadas pelo usuário em um Google Docs.",
-    "version": "1.0.0"
+    "version": "1.0.1"
   },
   "servers": [
     {
@@ -13,8 +13,9 @@
   "paths": {
     "/": {
       "post": {
+        "tags": ["GoogleDocs", "UserMessages"],
         "summary": "Salva mensagem do usuário no Google Docs.",
-        "operationId": "salvarMensagem",
+        "operationId": "saveUserMessage",
         "requestBody": {
           "required": true,
           "content": {
@@ -41,7 +42,14 @@
                   "type": "object",
                   "properties": {
                     "status": { "type": "string" },
-                    "message": { "type": "string" }
+                    "message": { "type": "string" },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "timestamp": { "type": "string", "description": "Data e hora do salvamento" },
+                        "docId": { "type": "string", "description": "ID do Google Docs" }
+                      }
+                    }
                   }
                 }
               }
@@ -54,7 +62,7 @@
   "x-openai": {
     "functions": [
       {
-        "name": "salvarMensagem",
+        "name": "saveUserMessage",
         "description": "Envia a mensagem do usuário para o Google Docs.",
         "parameters": {
           "type": "object",
