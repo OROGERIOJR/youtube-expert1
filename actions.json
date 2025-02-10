@@ -22,7 +22,10 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "userMessage": { "type": "string" }
+                  "userMessage": {
+                    "type": "string",
+                    "description": "Mensagem enviada pelo usuário para ser salva no Google Docs."
+                  }
                 },
                 "required": ["userMessage"]
               }
@@ -56,7 +59,10 @@
         "parameters": {
           "type": "object",
           "properties": {
-            "userMessage": { "type": "string", "description": "Mensagem enviada pelo usuário para ser salva no Google Docs." }
+            "userMessage": {
+              "type": "string",
+              "description": "Mensagem enviada pelo usuário para ser salva no Google Docs."
+            }
           },
           "required": ["userMessage"]
         },
