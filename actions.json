@@ -1,54 +1,53 @@
-  {
-    "openapi": "3.1.0",
-    "info": {
-      "title": "Salvar Mensagens GPT",
-      "description": "Armazena automaticamente todas as mensagens enviadas pelo usuário em um Google Docs.",
-      "version": "1.0.1"
-    },
-    "servers": [
-      {
-        "url": "https://script.googleusercontent.com/macros/echo?user_content_key=IbDNNvT4lCezOUcAejpMYfhPpo3NeOmUZFaLGgt4j8oFXIS5-K26jLDYWeoK2tdywcOzBPTmtpR1hnoOs9FYGZmFYqyKooh4m5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnA4C-NwiM0QDLETYKugc-tyQOKdB9V-4H5I-JWZbkSMQNtQh1QH09Ghv27RJjBCLCJGcj9TJ7k-Gf1yHsqZYuxinI7yj6CxYPdz9Jw9Md8uu&lib=MI7BsBUXExbx_Nyz4goh4C5tUBpZMlnRr"
-      }
-    ],
-    "paths": {
-      "/": {
-        "post": {
-          "tags": ["GoogleDocs", "UserMessages"],
-          "summary": "Salva mensagem do usuário no Google Docs.",
-          "operationId": "saveUserMessage",
-          "requestBody": {
-            "required": true,
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Salvar Mensagens GPT",
+    "description": "Armazena automaticamente todas as mensagens enviadas pelo usuário em um Google Docs.",
+    "version": "1.0.2"
+  },
+  "servers": [
+    {
+      "url": "https://script.googleusercontent.com/macros/echo?user_content_key=IbDNNvT4lCezOUcAejpMYfhPpo3NeOmUZFaLGgt4j8oFXIS5-K26jLDYWeoK2tdywcOzBPTmtpR1hnoOs9FYGZmFYqyKooh4m5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnA4C-NwiM0QDLETYKugc-tyQOKdB9V-4H5I-JWZbkSMQNtQh1QH09Ghv27RJjBCLCJGcj9TJ7k-Gf1yHsqZYuxinI7yj6CxYPdz9Jw9Md8uu&lib=MI7BsBUXExbx_Nyz4goh4C5tUBpZMlnRr"
+    }
+  ],
+  "paths": {
+    "/": {
+      "post": {
+        "tags": ["GoogleDocs", "UserMessages"],
+        "summary": "Salva mensagem do usuário no Google Docs.",
+        "operationId": "saveUserMessage",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "userMessage": {
+                    "type": "string",
+                    "description": "Mensagem enviada pelo usuário para ser salva no Google Docs."
+                  }
+                },
+                "required": ["userMessage"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Mensagem salva com sucesso no Google Docs",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "userMessage": {
-                      "type": "string",
-                      "description": "Mensagem enviada pelo usuário para ser salva no Google Docs."
-                    }
-                  },
-                  "required": ["userMessage"]
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Mensagem salva com sucesso no Google Docs",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "object",
-                    "properties": {
-                      "status": { "type": "string" },
-                      "message": { "type": "string" },
-                      "data": {
-                        "type": "object",
-                        "properties": {
-                          "timestamp": { "type": "string", "description": "Data e hora do salvamento" },
-                          "docId": { "type": "string", "description": "ID do Google Docs" }
-                        }
+                    "status": { "type": "string" },
+                    "message": { "type": "string" },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "timestamp": { "type": "string", "description": "Data e hora do salvamento" },
+                        "docId": { "type": "string", "description": "ID do Google Docs" }
                       }
                     }
                   }
@@ -58,37 +57,37 @@
           }
         }
       }
-    },
-    "x-openai": {
-      "functions": [
-        {
-          "name": "saveUserMessage",
-          "description": "Envia a mensagem do usuário para o Google Docs.",
-          "parameters": {
-            "type": "object",
-            "properties": {
-              "userMessage": {
-                "type": "string",
-                "description": "Mensagem enviada pelo usuário para ser salva no Google Docs."
-              }
-            },
-            "required": ["userMessage"]
-          },
-          "request": {
-            "method": "post",
-            "url": "https://script.googleusercontent.com/macros/echo?user_content_key=IbDNNvT4lCezOUcAejpMYfhPpo3NeOmUZFaLGgt4j8oFXIS5-K26jLDYWeoK2tdywcOzBPTmtpR1hnoOs9FYGZmFYqyKooh4m5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnA4C-NwiM0QDLETYKugc-tyQOKdB9V-4H5I-JWZbkSMQNtQh1QH09Ghv27RJjBCLCJGcj9TJ7k-Gf1yHsqZYuxinI7yj6CxYPdz9Jw9Md8uu&lib=MI7BsBUXExbx_Nyz4goh4C5tUBpZMlnRr
-  ",
-            "mediaType": "application/json",
-            "body": {
-              "userMessage": "{userMessage}"
+    }
+  },
+  "x-openai": {
+    "functions": [
+      {
+        "name": "saveUserMessage",
+        "description": "Envia a mensagem do usuário para o Google Docs.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "userMessage": {
+              "type": "string",
+              "description": "Mensagem enviada pelo usuário para ser salva no Google Docs."
             }
           },
-          "response": {
-            "type": "json",
-            "success_condition": "$.status == 'success'",
-            "error_message": "Erro ao salvar a mensagem no Google Docs."
+          "required": ["userMessage"]
+        },
+        "request": {
+          "method": "post",
+          "url": "https://script.googleusercontent.com/macros/echo?user_content_key=IbDNNvT4lCezOUcAejpMYfhPpo3NeOmUZFaLGgt4j8oFXIS5-K26jLDYWeoK2tdywcOzBPTmtpR1hnoOs9FYGZmFYqyKooh4m5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnA4C-NwiM0QDLETYKugc-tyQOKdB9V-4H5I-JWZbkSMQNtQh1QH09Ghv27RJjBCLCJGcj9TJ7k-Gf1yHsqZYuxinI7yj6CxYPdz9Jw9Md8uu&lib=MI7BsBUXExbx_Nyz4goh4C5tUBpZMlnRr",
+          "mediaType": "application/json",
+          "body": {
+            "userMessage": "{userMessage}"
           }
+        },
+        "response": {
+          "type": "json",
+          "success_condition": "$.status == 'success'",
+          "error_message": "Erro ao salvar a mensagem no Google Docs."
         }
-      ]
-    }
+      }
+    ]
   }
+}
