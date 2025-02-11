@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://script.google.com/macros/s/AKfycby4xpKKjl1H4I7UsYHukM4RO8phM8_jvqQD66DQBtxIjTHAMNy1dPthhCpuiCzukYvxPA/exec"
+      "url": "https://script.google.com/macros/s/AKfycby4xpKKjl1H7UsYHukM4RO8phM8_jvqQD66DQBtxIjTHAMNy1dPthhCpuiCzukYvxPA/exec"
     }
   ],
   "paths": {
@@ -41,23 +41,13 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "status": {
-                      "type": "string"
-                    },
-                    "message": {
-                      "type": "string"
-                    },
+                    "status": { "type": "string" },
+                    "message": { "type": "string" },
                     "data": {
                       "type": "object",
                       "properties": {
-                        "timestamp": {
-                          "type": "string",
-                          "description": "Data e hora do salvamento."
-                        },
-                        "docId": {
-                          "type": "string",
-                          "description": "ID do Google Docs."
-                        }
+                        "timestamp": { "type": "string", "description": "Data e hora do salvamento." },
+                        "docId": { "type": "string", "description": "ID do Google Docs." }
                       }
                     }
                   }
@@ -72,12 +62,8 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "status": {
-                      "type": "string"
-                    },
-                    "message": {
-                      "type": "string"
-                    }
+                    "status": { "type": "string" },
+                    "message": { "type": "string" }
                   }
                 }
               }
@@ -104,7 +90,7 @@
         },
         "request": {
           "method": "post",
-          "url": "https://script.google.com/macros/s/AKfycby4xpKKjl1H4I7UsYHukM4RO8phM8_jvqQD66DQBtxIjTHAMNy1dPthhCpuiCzukYvxPA/exec",
+          "url": "https://script.google.com/macros/s/AKfycby4xpKKjl1H7UsYHukM4RO8phM8_jvqQD66DQBtxIjTHAMNy1dPthhCpuiCzukYvxPA/exec",
           "mediaType": "application/json",
           "body": {
             "userMessage": "{userMessage}"
