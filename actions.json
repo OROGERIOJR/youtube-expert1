@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://script.google.com/macros/s/AKfycbzVZ-cqivQQhzt2G1O6_nbxK1swjVTIQOblM6oHAx3o81w01JtXyk_OeIyAfsMGZFPA0w/exec"
+      "url": "https://script.googleusercontent.com/macros/echo?user_content_key=9_8pb1HzA9wZ0kOr9YSUbaOqHbqwG1NrxRfUHzrAEe8ljO9YsqW9dMdZQhqQ9ak4eeeZdOfI4w0T8QKK9ZQref1rsxlImjhgm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnAoz-iTQlLzUSd2wKFZBvZXa5b0HcnKOAxhhxb3BjaZM5F1qC3SBboW9er7QdkyUsgTg9-S2kf5SNUYQ0cnq93fM2Qq8Ona3Atz9Jw9Md8uu&amp;lib=MI7BsBUXExbx_Nyz4goh4C5tUBpZMlnRr"
     }
   ],
   "paths": {
@@ -76,7 +76,7 @@
         },
         "request": {
           "method": "post",
-          "url": "https://script.google.com/macros/s/AKfycbzVZ-cqivQQhzt2G1O6_nbxK1swjVTIQOblM6oHAx3o81w01JtXyk_OeIyAfsMGZFPA0w/exec",
+          "url": "https://script.googleusercontent.com/macros/echo?user_content_key=9_8pb1HzA9wZ0kOr9YSUbaOqHbqwG1NrxRfUHzrAEe8ljO9YsqW9dMdZQhqQ9ak4eeeZdOfI4w0T8QKK9ZQref1rsxlImjhgm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnAoz-iTQlLzUSd2wKFZBvZXa5b0HcnKOAxhhxb3BjaZM5F1qC3SBboW9er7QdkyUsgTg9-S2kf5SNUYQ0cnq93fM2Qq8Ona3Atz9Jw9Md8uu&amp;lib=MI7BsBUXExbx_Nyz4goh4C5tUBpZMlnRr",
           "mediaType": "application/json",
           "body": {
             "userMessage": "{userMessage}"
