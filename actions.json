@@ -7,16 +7,16 @@
   },
   "servers": [
     {
-      "url": "https://script.googleusercontent.com/macros/echo?user_content_key=IbDNNvT4lCezOUcAejpMYfhPpo3NeOmUZFaLGgt4j8oFXIS5-K26jLDYWeoK2tdywcOzBPTmtpR1hnoOs9FYGZmFYqyKooh4m5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnA4C-NwiM0QDLETYKugc-tyQOKdB9V-4H5I-JWZbkSMQNtQh1QH09Ghv27RJjBCLCJGcj9TJ7k-Gf1yHsqZYuxinI7yj6CxYPdz9Jw9Md8uu&lib=MI7BsBUXExbx_Nyz4goh4C5tUBpZMlnRr"
+      "url": "https://script.google.com/macros/s/AKfycby4xpKKjl1H4I7UsYHukM4RO8phM8_jvqQD66DQBtxIjTHAMNy1dPthhCpuiCzukYvxPA/exec"
     }
   ],
   "paths": {
     "/": {
       "post": {
-        "tags": ["GoogleDocs", "UserMessages"],
-        "summary": "Salva mensagem do usuário no Google Docs.",
+        "summary": "Salva a mensagem do usuário no Google Docs",
         "operationId": "saveUserMessage",
         "requestBody": {
+          "description": "JSON contendo a mensagem do usuário a ser salva.",
           "required": true,
           "content": {
             "application/json": {
@@ -41,14 +41,42 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "status": { "type": "string" },
-                    "message": { "type": "string" },
+                    "status": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
                     "data": {
                       "type": "object",
                       "properties": {
-                        "timestamp": { "type": "string", "description": "Data e hora do salvamento" },
-                        "docId": { "type": "string", "description": "ID do Google Docs" }
+                        "timestamp": {
+                          "type": "string",
+                          "description": "Data e hora do salvamento."
+                        },
+                        "docId": {
+                          "type": "string",
+                          "description": "ID do Google Docs."
+                        }
                       }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Resposta de erro",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
                     }
                   }
                 }
@@ -76,7 +104,7 @@
         },
         "request": {
           "method": "post",
-          "url": "https://script.googleusercontent.com/macros/echo?user_content_key=IbDNNvT4lCezOUcAejpMYfhPpo3NeOmUZFaLGgt4j8oFXIS5-K26jLDYWeoK2tdywcOzBPTmtpR1hnoOs9FYGZmFYqyKooh4m5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnA4C-NwiM0QDLETYKugc-tyQOKdB9V-4H5I-JWZbkSMQNtQh1QH09Ghv27RJjBCLCJGcj9TJ7k-Gf1yHsqZYuxinI7yj6CxYPdz9Jw9Md8uu&lib=MI7BsBUXExbx_Nyz4goh4C5tUBpZMlnRr",
+          "url": "https://script.google.com/macros/s/AKfycby4xpKKjl1H4I7UsYHukM4RO8phM8_jvqQD66DQBtxIjTHAMNy1dPthhCpuiCzukYvxPA/exec",
           "mediaType": "application/json",
           "body": {
             "userMessage": "{userMessage}"
